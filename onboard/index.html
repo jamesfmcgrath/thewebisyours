@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Your Free Website | The Web Is Yours</title>
+  <meta name="description" content="Fill in this form and we'll build you a free one-page website. Takes about 10 minutes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    :root {
+      --accent: var(--terracotta);
+      --surface: var(--warm-white);
+    }
+
+    /* ONBOARDING PAGE LAYOUT */
+    .onboard-hero {
+      padding: 4rem 2.5rem 3rem;
+      max-width: 740px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .onboard-hero .eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      background: var(--sage-light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .onboard-hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .onboard-hero p {
+      font-size: 1rem;
+      color: var(--mid);
+      line-height: 1.75;
+      max-width: 560px;
+      font-weight: 300;
+    }
+
+    .onboard-body {
+      max-width: 740px;
+      padding: 3rem 2.5rem 5rem;
+    }
+
+    /* FORM SECTIONS */
+    .form-section {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-section:last-of-type {
+      border-bottom: none;
+    }
+
+    .form-section-title {
+      font-family: 'Lora', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-section-desc {
+      font-size: 0.85rem;
+      color: var(--light);
+      margin-bottom: 1.75rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* FORM ELEMENTS */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .form-group label .optional {
+      font-weight: 300;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--light);
+      font-size: 0.75rem;
+      margin-left: 0.35rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--cream);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      width: 100%;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(134,61,23,0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.6;
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239c8f84' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    /* HOURS TABLE */
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto auto;
+      gap: 0.5rem 1rem;
+      align-items: center;
+    }
+
+    .hours-grid .day-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--mid);
+    }
+
+    .hours-grid input[type="time"] {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem 0.75rem;
+      font-family: inherit;
+      font-size: 0.85rem;
+      color: var(--ink);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 120px;
+    }
+
+    .hours-grid input[type="time"]:focus {
+      border-color: var(--accent);
+    }
+
+    .hours-grid input[type="time"]:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .hours-grid .closed-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--light);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .hours-grid .closed-toggle input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .hours-divider {
+      font-size: 0.78rem;
+      color: var(--light);
+      text-align: center;
+    }
+
+    /* SERVICE CARDS */
+    .service-inputs {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .service-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .service-block-title {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+    }
+
+    .service-block .form-group {
+      margin-bottom: 0.75rem;
+    }
+
+    .service-block .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .service-block textarea {
+      min-height: 80px;
+    }
+
+    /* PHOTO NOTE */
+    .photo-note {
+      background: var(--sage-light);
+      border: 1px solid var(--sage);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      font-size: 0.88rem;
+      color: var(--sage);
+      line-height: 1.7;
+    }
+
+    .photo-note strong {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      color: var(--sage);
+    }
+
+    /* CONSENT */
+    .consent-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .consent-label {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      cursor: pointer;
+    }
+
+    .consent-label input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .consent-text {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .consent-text a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--terracotta-light);
+    }
+
+    .consent-text a:hover {
+      border-color: var(--accent);
+    }
+
+    /* SUBMIT */
+    .submit-section {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 1rem 2.5rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      align-self: flex-start;
+      letter-spacing: 0.01em;
+    }
+
+    .submit-btn:hover {
+      background: color-mix(in srgb, var(--accent) 85%, black);
+      transform: translateY(-1px);
+    }
+
+    .submit-btn:disabled {
+      background: var(--light);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .submit-note {
+      font-size: 0.78rem;
+      color: var(--light);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* SUCCESS */
+    .success-msg {
+      display: none;
+      background: var(--sage-light);
+      border: 1px solid var(--sage);
+      border-radius: 14px;
+      padding: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .success-msg.visible { display: block; }
+
+    .success-msg h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--sage);
+      margin-bottom: 0.75rem;
+    }
+
+    .success-msg p {
+      font-size: 0.9rem;
+      color: var(--sage);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .onboard-hero { padding: 3rem 1.5rem 2rem; }
+      .onboard-body { padding: 2rem 1.5rem 4rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .hours-grid { grid-template-columns: 1fr; }
+      .hours-grid input[type="time"] { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="/">The Web Is <span>Yours</span></a>
+    <nav id="main-nav">
+      <a href="/">Home</a>
+      <a href="/#contact">Contact</a>
+      <a href="/terms">Terms</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="onboard-hero">
+      <span class="eyebrow">Get Involved</span>
+      <h1>Let's build your website.</h1>
+      <p>Fill in the form below and we'll be in touch within a few days to confirm your spot. Takes about 10 minutes. The more detail you give us the better the site will be.</p>
+    </section>
+
+    <div class="onboard-body">
+      <form id="onboard-form">
+
+        <input type="hidden" name="access_key" value="b02650c2-6657-4c17-8091-e0af722c5a44">
+        <input type="hidden" name="subject" value="New website application — The Web Is Yours">
+        <input type="hidden" name="from_name" value="The Web Is Yours Onboarding">
+        <input type="checkbox" name="botcheck" style="display:none;">
+
+        <!-- SECTION 1: ABOUT YOU -->
+        <div class="form-section">
+          <h2 class="form-section-title">About You</h2>
+          <p class="form-section-desc">Your contact details. We'll use these to get in touch — they won't appear on your website.</p>
+
+          <div class="form-group">
+            <label for="owner-name">Owner Name</label>
+            <input type="text" id="owner-name" name="owner_name" autocomplete="name" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="owner-email">Owner Email</label>
+              <input type="email" id="owner-email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form-group">
+              <label for="owner-phone">Owner Phone</label>
+              <input type="tel" id="owner-phone" name="owner_phone" autocomplete="tel" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 2: ABOUT YOUR BUSINESS -->
+        <div class="form-section">
+          <h2 class="form-section-title">About Your Business</h2>
+          <p class="form-section-desc">Tell us about what you do. This becomes the foundation of your website.</p>
+
+          <div class="form-group">
+            <label for="business-name">Business Name</label>
+            <input type="text" id="business-name" name="business_name" autocomplete="organization" required>
+          </div>
+
+          <div class="form-group">
+            <label for="business-type">Business Type</label>
+            <select id="business-type" name="business_type" required>
+              <option value="" disabled selected>Select a type…</option>
+              <option>Café / Coffee Shop</option>
+              <option>Restaurant / Takeaway</option>
+              <option>Pub / Bar</option>
+              <option>Retail Shop</option>
+              <option>Market Stall</option>
+              <option>Trades (Plumber / Electrician / Builder etc)</option>
+              <option>Creative (Photographer / Artist / Designer)</option>
+              <option>Health &amp; Wellness (Yoga / Therapy / Coaching)</option>
+              <option>Music / Entertainment</option>
+              <option>Beauty / Hair</option>
+              <option>Other (please describe below)</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="town">Town / Area</label>
+              <input type="text" id="town" name="business_town" required>
+            </div>
+            <div class="form-group">
+              <label for="county">County</label>
+              <select id="county" name="business_county" required>
+                <option value="" disabled selected>Select a county…</option>
+                <optgroup label="Republic of Ireland">
+                  <option>Carlow</option>
+                  <option>Cavan</option>
+                  <option>Clare</option>
+                  <option>Cork</option>
+                  <option>Donegal</option>
+                  <option>Dublin</option>
+                  <option>Galway</option>
+                  <option>Kerry</option>
+                  <option>Kildare</option>
+                  <option>Kilkenny</option>
+                  <option>Laois</option>
+                  <option>Leitrim</option>
+                  <option>Limerick</option>
+                  <option>Longford</option>
+                  <option>Louth</option>
+                  <option>Mayo</option>
+                  <option>Meath</option>
+                  <option>Monaghan</option>
+                  <option>Offaly</option>
+                  <option>Roscommon</option>
+                  <option>Sligo</option>
+                  <option>Tipperary</option>
+                  <option>Waterford</option>
+                  <option>Westmeath</option>
+                  <option>Wexford</option>
+                  <option>Wicklow</option>
+                </optgroup>
+                <optgroup label="Northern Ireland">
+                  <option>Antrim</option>
+                  <option>Armagh</option>
+                  <option>Down</option>
+                  <option>Fermanagh</option>
+                  <option>Derry / Londonderry</option>
+                  <option>Tyrone</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="years-trading">How long have you been in business?</label>
+            <select id="years-trading" name="years_trading">
+              <option value="" disabled selected>Select…</option>
+              <option>Less than 1 year</option>
+              <option>1–3 years</option>
+              <option>3–5 years</option>
+              <option>5–10 years</option>
+              <option>More than 10 years</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="business-description">Describe what you do</label>
+            <textarea id="business-description" name="business_description" placeholder="In two or three sentences, tell us what your business does and who your customers are." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="business-differentiator">What makes you different? <span class="optional">optional</span></label>
+            <textarea id="business-differentiator" name="business_differentiator" placeholder="What sets you apart from others in your area? What do your customers love about you?"></textarea>
+          </div>
+        </div>
+
+        <!-- SECTION 3: ONLINE PRESENCE -->
+        <div class="form-section">
+          <h2 class="form-section-title">Your Online Presence</h2>
+          <p class="form-section-desc">We'll link to your existing social accounts from your website. Leave blank anything that doesn't apply.</p>
+
+          <div class="form-group">
+            <label for="facebook">Facebook Page URL <span class="optional">optional</span></label>
+            <input type="text" id="facebook" name="social_facebook" placeholder="https://facebook.com/yourbusiness">
+          </div>
+
+          <div class="form-group">
+            <label for="instagram">Instagram Handle <span class="optional">optional</span></label>
+            <input type="text" id="instagram" name="social_instagram" placeholder="@yourbusiness">
+          </div>
+
+          <div class="form-group">
+            <label for="other-social">Any other social accounts <span class="optional">optional</span></label>
+            <input type="text" id="other-social" name="social_other" placeholder="TikTok, Twitter/X, LinkedIn, YouTube — paste any links here">
+          </div>
+        </div>
+
+        <!-- SECTION 4: SERVICES -->
+        <div class="form-section">
+          <h2 class="form-section-title">What You Offer</h2>
+          <p class="form-section-desc">Tell us about up to four things you offer — products, services, or specialities. These become the cards on your website.</p>
+
+          <div class="service-inputs">
+
+            <div class="service-block">
+              <p class="service-block-title">Service 1</p>
+              <div class="form-group">
+                <label for="service-1-name">Service / Product Name</label>
+                <input type="text" id="service-1-name" name="service_1_name" required>
+              </div>
+              <div class="form-group">
+                <label for="service-1-desc">Short Description</label>
+                <textarea id="service-1-desc" name="service_1_description" placeholder="One or two sentences describing this service or product." required></textarea>
+              </div>
+            </div>
+
+            <div class="service-block">
+              <p class="service-block-title">Service 2</p>
+              <div class="form-group">
+                <label for="service-2-name">Service / Product Name</label>
+                <input type="text" id="service-2-name" name="service_2_name" required>
+              </div>
+              <div class="form-group">
+                <label for="service-2-desc">Short Description</label>
+                <textarea id="service-2-desc" name="service_2_description" placeholder="One or two sentences describing this service or product." required></textarea>
+              </div>
+            </div>
+
+            <div class="service-block">
+              <p class="service-block-title">Service 3</p>
+              <div class="form-group">
+                <label for="service-3-name">Service / Product Name</label>
+                <input type="text" id="service-3-name" name="service_3_name" required>
+              </div>
+              <div class="form-group">
+                <label for="service-3-desc">Short Description</label>
+                <textarea id="service-3-desc" name="service_3_description" placeholder="One or two sentences describing this service or product." required></textarea>
+              </div>
+            </div>
+
+            <div class="service-block">
+              <p class="service-block-title">Service 4 <span style="font-weight:300;text-transform:none;letter-spacing:0;color:var(--light);font-size:0.75rem;">(Optional)</span></p>
+              <div class="form-group">
+                <label for="service-4-name">Service / Product Name <span class="optional">optional</span></label>
+                <input type="text" id="service-4-name" name="service_4_name">
+              </div>
+              <div class="form-group">
+                <label for="service-4-desc">Short Description <span class="optional">optional</span></label>
+                <textarea id="service-4-desc" name="service_4_description" placeholder="One or two sentences describing this service or product."></textarea>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SECTION 5: OPENING HOURS -->
+        <div class="form-section">
+          <h2 class="form-section-title">Opening Hours</h2>
+          <p class="form-section-desc">Tell us when you're open. Tick "Closed" for any days that don't apply.</p>
+
+          <div class="hours-grid">
+
+            <span class="day-label">Monday</span>
+            <input type="time" name="hours_monday_open" value="09:00">
+            <span class="hours-divider">to</span>
+            <input type="time" name="hours_monday_close" value="17:00">
+            <label class="closed-toggle"><input type="checkbox" name="hours_monday_closed"> Closed</label>
+
+            <span class="day-label">Tuesday</span>
+            <input type="time" name="hours_tuesday_open" value="09:00">
+            <span class="hours-divider">to</span>
+            <input type="time" name="hours_tuesday_close" value="17:00">
+            <label class="closed-toggle"><input type="checkbox" name="hours_tuesday_closed"> Closed</label>
+
+            <span class="day-label">Wednesday</span>
+            <input type="time" name="hours_wednesday_open" value="09:00">
+            <span class="hours-divider">to</span>
+            <input type="time" name="hours_wednesday_close" value="17:00">
+            <label class="closed-toggle"><input type="checkbox" name="hours_wednesday_closed"> Closed</label>
+
+            <span class="day-label">Thursday</span>
+            <input type="time" name="hours_thursday_open" value="09:00">
+            <span class="hours-divider">to</span>
+            <input type="time" name="hours_thursday_close" value="17:00">
+            <label class="closed-toggle"><input type="checkbox" name="hours_thursday_closed"> Closed</label>
+
+            <span class="day-label">Friday</span>
+            <input type="time" name="hours_friday_open" value="09:00">
+            <span class="hours-divider">to</span>
+            <input type="time" name="hours_friday_close" value="17:00">
+            <label class="closed-toggle"><input type="checkbox" name="hours_friday_closed"> Closed</label>
+
+            <span class="day-label">Saturday</span>
+            <input type="time" name="hours_saturday_open" value="10:00">
+            <span class="hours-divider">to</span>
+            <input type="time" name="hours_saturday_close" value="16:00">
+            <label class="closed-toggle"><input type="checkbox" name="hours_saturday_closed"> Closed</label>
+
+            <span class="day-label">Sunday</span>
+            <input type="time" name="hours_sunday_open" value="10:00" disabled>
+            <span class="hours-divider">to</span>
+            <input type="time" name="hours_sunday_close" value="16:00" disabled>
+            <label class="closed-toggle"><input type="checkbox" name="hours_sunday_closed" checked> Closed</label>
+
+          </div>
+        </div>
+
+        <!-- SECTION 6: LOCATION & CONTACT -->
+        <div class="form-section">
+          <h2 class="form-section-title">Location &amp; Contact</h2>
+          <p class="form-section-desc">Your address and contact details for the website. These will appear publicly on your site.</p>
+
+          <div class="form-group">
+            <label for="street-address">Street Address</label>
+            <textarea id="street-address" name="address_street" placeholder="Street number and name, any second line" required></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="address-town">Town / Village</label>
+              <input type="text" id="address-town" name="address_town" required>
+            </div>
+            <div class="form-group">
+              <label for="eircode">Eircode <span class="optional">optional</span></label>
+              <input type="text" id="eircode" name="address_eircode" placeholder="e.g. F28 A123">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="domain">Preferred domain name <span class="optional">optional</span></label>
+            <input type="text" id="domain" name="preferred_domain" placeholder="e.g. harbourbakery.ie or westportcafe.com — leave blank if you're not sure">
+          </div>
+
+          <div class="form-group">
+            <label for="business-phone">Business phone <span class="optional">optional — if different from yours</span></label>
+            <input type="tel" id="business-phone" name="business_phone" autocomplete="off">
+          </div>
+
+          <div class="form-group">
+            <label for="business-email">Business email <span class="optional">optional — if different from yours</span></label>
+            <input type="email" id="business-email" name="business_email" autocomplete="off">
+          </div>
+        </div>
+
+        <!-- SECTION 7: PHOTOS -->
+        <div class="form-section">
+          <h2 class="form-section-title">Photos</h2>
+          <p class="form-section-desc">One good photo makes a huge difference.</p>
+
+          <div class="photo-note">
+            <strong>We'll ask you to send your photos by email.</strong>
+            Once we confirm your application we'll send you an email asking for one or two photos of your business. A good photo of your premises, your product, or yourself at work — anything that shows what you do. We'll let you know what works best.
+            No need to do anything here for now.
+          </div>
+        </div>
+
+        <!-- SECTION 8: CONSENT -->
+        <div class="form-section">
+          <h2 class="form-section-title">Almost done</h2>
+          <p class="form-section-desc">One last thing before you submit.</p>
+
+          <div class="consent-block">
+            <label class="consent-label">
+              <input type="checkbox" name="consent" required>
+              <span class="consent-text">
+                I agree to the information I've provided being used by The Web Is Yours to build a free website for my business. I understand this information will not be shared with third parties or used for any other purpose. I have read the <a href="/privacy">Privacy Statement</a> and <a href="/terms">Terms and Conditions</a>.
+              </span>
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="anything-else">Anything else we should know? <span class="optional">optional</span></label>
+            <textarea id="anything-else" name="anything_else" placeholder="Any specific requests, questions, or things you want us to know before we get started."></textarea>
+          </div>
+
+          <div class="submit-section">
+            <button type="submit" id="submit-btn" class="submit-btn">Submit Application →</button>
+            <p class="submit-note">We'll be in touch within a few days to confirm your spot. One website per business. Applications are reviewed in the order they're received.</p>
+          </div>
+        </div>
+
+      </form>
+
+      <div id="success-msg" class="success-msg">
+        <h2>We've got your details.</h2>
+        <p>Thank you for applying. We'll be in touch within a few days to confirm your spot and answer any questions. In the meantime please gather one or two good photos of your business — we'll ask you to email them to hello@thewebisyours.org when we confirm.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      <span class="footer-logo">The Web Is <span>Yours</span></span>
+      <p>A grassroots campaign by web people who give a damn &nbsp;·&nbsp; Westport, Ireland &nbsp;·&nbsp; 2026</p>
+    </div>
+    <a href="mailto:hello@thewebisyours.org">hello@thewebisyours.org</a>
+    <nav class="footer-legal">
+      <a href="/privacy/">Privacy Statement</a>
+      <span>·</span>
+      <a href="/terms/">Terms and Conditions</a>
+    </nav>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    function toggleNav() {
+      document.getElementById('main-nav').classList.toggle('open');
+    }
+
+    document.querySelectorAll('#main-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('main-nav').classList.remove('open');
+      });
+    });
+
+    // Closed day toggles — disable time inputs when closed
+    document.querySelectorAll('.closed-toggle input[type="checkbox"]').forEach(checkbox => {
+      const day = checkbox.name.replace('hours_', '').replace('_closed', '');
+      toggleDayInputs(day, checkbox.checked);
+
+      checkbox.addEventListener('change', function() {
+        toggleDayInputs(day, this.checked);
+      });
+    });
+
+    function toggleDayInputs(day, isClosed) {
+      const openInput = document.querySelector(`input[name="hours_${day}_open"]`);
+      const closeInput = document.querySelector(`input[name="hours_${day}_close"]`);
+      if (openInput) openInput.disabled = isClosed;
+      if (closeInput) closeInput.disabled = isClosed;
+    }
+
+    // Form submission
+    document.getElementById('onboard-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+
+      // Collect hours into a readable string
+      const days = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+      let hoursText = '';
+      days.forEach(day => {
+        const closed = document.querySelector(`input[name="hours_${day}_closed"]`)?.checked;
+        const open = document.querySelector(`input[name="hours_${day}_open"]`)?.value;
+        const close = document.querySelector(`input[name="hours_${day}_close"]`)?.value;
+        const label = day.charAt(0).toUpperCase() + day.slice(1);
+        hoursText += closed ? `${label}: Closed\n` : `${label}: ${open} – ${close}\n`;
+      });
+
+      const formData = new FormData(this);
+      const object = Object.fromEntries(formData);
+      object.opening_hours = hoursText;
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(object)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          document.getElementById('onboard-form').style.display = 'none';
+          document.getElementById('success-msg').classList.add('visible');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Submit Application →';
+          alert('Something went wrong. Please email hello@thewebisyours.org directly.');
+        }
+      } catch(err) {
+        btn.disabled = false;
+        btn.textContent = 'Submit Application →';
+        alert('Something went wrong. Please email hello@thewebisyours.org directly.');
+      }
+    });
+  </script>
+
+</body>
+</html>
