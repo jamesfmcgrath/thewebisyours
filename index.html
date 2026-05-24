@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Web Is Yours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #faf6f0;
+      --warm-white: #fff9f2;
+      --ink: #1c1712;
+      --mid: #5c5248;
+      --light: #9c8f84;
+      --terracotta: #c4622d;
+      --terracotta-light: #f0e0d6;
+      --sage: #6b7c6e;
+      --sage-light: #e4ece5;
+      --border: #e8ddd5;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      padding: 1.75rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      animation: fadeDown 0.7s ease both;
+    }
+
+    .logo {
+      font-family: 'Lora', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .logo span { color: var(--terracotta); }
+
+    .coming-soon {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--terracotta-light);
+      color: var(--terracotta);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.75rem;
+      border-radius: 100px;
+    }
+
+    .coming-soon::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* HERO */
+    .hero {
+      padding: 5rem 2.5rem 3rem;
+      max-width: 820px;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      background: var(--sage-light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1.75rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .hero-text {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--mid);
+      max-width: 600px;
+    }
+
+    .hero-text strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* CARDS SECTION */
+    .cards-section {
+      background: var(--warm-white);
+      padding: 4rem 2.5rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 2.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 16px 16px 0 0;
+      background: var(--terracotta);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(28,23,18,0.08);
+    }
+
+    .card:hover::before { transform: scaleX(1); }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-icon.terracotta { background: var(--terracotta-light); }
+    .card-icon.sage { background: var(--sage-light); }
+    .card-icon.warm { background: #f5eadc; }
+
+    .card h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--mid);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--terracotta);
+      text-decoration: none;
+      transition: gap 0.2s ease;
+    }
+
+    .card-link:hover { gap: 0.7rem; }
+    .card-link::after { content: '→'; }
+
+    /* MANIFESTO */
+    .manifesto {
+      padding: 5rem 2.5rem;
+      animation: fadeUp 0.8s 0.45s ease both;
+    }
+
+    .manifesto blockquote {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.3rem, 3vw, 2.2rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--ink);
+      max-width: 680px;
+      border-left: 3px solid var(--terracotta);
+      padding-left: 2rem;
+    }
+
+    .manifesto blockquote span { color: var(--light); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      animation: fadeUp 0.6s 0.55s ease both;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .footer-logo {
+      font-family: 'Lora', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .footer-logo span { color: var(--terracotta); }
+
+    footer p {
+      font-size: 0.75rem;
+      color: var(--light);
+      font-weight: 300;
+    }
+
+    footer a {
+      font-size: 0.82rem;
+      color: var(--mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    footer a:hover {
+      color: var(--terracotta);
+      border-color: var(--terracotta);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      header { padding: 1.25rem 1.5rem; }
+      .hero { padding: 3rem 1.5rem 2rem; }
+      .cards-section { padding: 3rem 1.5rem; }
+      .manifesto { padding: 3rem 1.5rem; }
+      footer { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="/">The Web Is <span>Yours</span></a>
+    <span class="coming-soon">Launching Summer 2026</span>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">A grassroots web campaign</span>
+    <h1>Every business deserves a home on the web <em>they own.</em></h1>
+    <p class="hero-text">
+      We're tired of searching for a local business and finding only a Facebook page last updated in 2022.
+      <strong>So we're doing something about it.</strong> Free one-page websites for small businesses
+      that only exist on social media. Starting in the west of Ireland. One business at a time.
+    </p>
+  </section>
+
+  <section class="cards-section">
+    <p class="section-label">How can we help?</p>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon terracotta">🏪</div>
+        <h2>Know a Business?</h2>
+        <p>A café, a trades person, a music teacher, a shop. If you know a local business whose only web presence is a Facebook page, tell us. We want to help them.</p>
+        <a class="card-link" href="mailto:hello@thewebisyours.org?subject=I know a business that needs a website">Nominate a business</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon warm">🌱</div>
+        <h2>Own a Business?</h2>
+        <p>We build you a free one-page website. We buy your domain. We host it free for the first year. After that it's yours to keep for the price of a few coffees a year.</p>
+        <a class="card-link" href="mailto:hello@thewebisyours.org?subject=I want a website for my business">Get in touch</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon sage">💻</div>
+        <h2>Are You a Developer?</h2>
+        <p>One business. One page. One month of your time. We have a template, a process, and a community forming. Come build something that matters.</p>
+        <a class="card-link" href="mailto:hello@thewebisyours.org?subject=I want to volunteer as a developer">Join the campaign</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <blockquote>
+      The web was built for everyone.
+      <span>Somewhere along the way, small businesses were told a Facebook page was enough.</span>
+      It isn't. Your story deserves a home you actually own.
+    </blockquote>
+  </section>
+
+  <footer>
+    <div class="footer-left">
+      <span class="footer-logo">The Web Is <span>Yours</span></span>
+      <p>A grassroots campaign by web people who give a damn &nbsp;·&nbsp; Westport, Ireland &nbsp;·&nbsp; 2026</p>
+    </div>
+    <a href="mailto:hello@thewebisyours.org">hello@thewebisyours.org</a>
+  </footer>
+
+</body>
+</html>
