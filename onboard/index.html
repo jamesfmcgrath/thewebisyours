@@ -391,16 +391,18 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <header>
     <a class="logo" href="/">The Web Is <span>Yours</span></a>
-    <nav id="main-nav">
+    <nav id="main-nav" aria-label="Main navigation">
       <a href="/">Home</a>
       <a href="/#contact">Contact</a>
       <a href="/terms">Terms</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
 
     <section class="onboard-hero">
       <span class="eyebrow">Get Involved</span>
@@ -423,17 +425,17 @@
 
           <div class="form-group">
             <label for="owner-name">Owner Name</label>
-            <input type="text" id="owner-name" name="owner_name" autocomplete="name" required>
+            <input type="text" id="owner-name" name="owner_name" autocomplete="name" required aria-required="true">
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="owner-email">Owner Email</label>
-              <input type="email" id="owner-email" name="email" autocomplete="email" required>
+              <input type="email" id="owner-email" name="email" autocomplete="email" required aria-required="true">
             </div>
             <div class="form-group">
               <label for="owner-phone">Owner Phone</label>
-              <input type="tel" id="owner-phone" name="owner_phone" autocomplete="tel" required>
+              <input type="tel" id="owner-phone" name="owner_phone" autocomplete="tel" required aria-required="true">
             </div>
           </div>
         </div>
@@ -445,12 +447,12 @@
 
           <div class="form-group">
             <label for="business-name">Business Name</label>
-            <input type="text" id="business-name" name="business_name" autocomplete="organization" required>
+            <input type="text" id="business-name" name="business_name" autocomplete="organization" required aria-required="true">
           </div>
 
           <div class="form-group">
             <label for="business-type">Business Type</label>
-            <select id="business-type" name="business_type" required>
+            <select id="business-type" name="business_type" required aria-required="true">
               <option value="" disabled selected>Select a type…</option>
               <option>Café / Coffee Shop</option>
               <option>Restaurant / Takeaway</option>
@@ -469,11 +471,11 @@
           <div class="form-row">
             <div class="form-group">
               <label for="town">Town / Area</label>
-              <input type="text" id="town" name="business_town" required>
+              <input type="text" id="town" name="business_town" required aria-required="true">
             </div>
             <div class="form-group">
               <label for="county">County</label>
-              <select id="county" name="business_county" required>
+              <select id="county" name="business_county" required aria-required="true">
                 <option value="" disabled selected>Select a county…</option>
                 <optgroup label="Republic of Ireland">
                   <option>Carlow</option>
@@ -529,7 +531,7 @@
 
           <div class="form-group">
             <label for="business-description">Describe what you do</label>
-            <textarea id="business-description" name="business_description" placeholder="In two or three sentences, tell us what your business does and who your customers are." required></textarea>
+            <textarea id="business-description" name="business_description" placeholder="In two or three sentences, tell us what your business does and who your customers are." required aria-required="true"></textarea>
           </div>
 
           <div class="form-group">
@@ -570,11 +572,11 @@
               <p class="service-block-title">Service 1</p>
               <div class="form-group">
                 <label for="service-1-name">Service / Product Name</label>
-                <input type="text" id="service-1-name" name="service_1_name" required>
+                <input type="text" id="service-1-name" name="service_1_name" required aria-required="true">
               </div>
               <div class="form-group">
                 <label for="service-1-desc">Short Description</label>
-                <textarea id="service-1-desc" name="service_1_description" placeholder="One or two sentences describing this service or product." required></textarea>
+                <textarea id="service-1-desc" name="service_1_description" placeholder="One or two sentences describing this service or product." required aria-required="true"></textarea>
               </div>
             </div>
 
@@ -582,11 +584,11 @@
               <p class="service-block-title">Service 2</p>
               <div class="form-group">
                 <label for="service-2-name">Service / Product Name</label>
-                <input type="text" id="service-2-name" name="service_2_name" required>
+                <input type="text" id="service-2-name" name="service_2_name" required aria-required="true">
               </div>
               <div class="form-group">
                 <label for="service-2-desc">Short Description</label>
-                <textarea id="service-2-desc" name="service_2_description" placeholder="One or two sentences describing this service or product." required></textarea>
+                <textarea id="service-2-desc" name="service_2_description" placeholder="One or two sentences describing this service or product." required aria-required="true"></textarea>
               </div>
             </div>
 
@@ -594,11 +596,11 @@
               <p class="service-block-title">Service 3</p>
               <div class="form-group">
                 <label for="service-3-name">Service / Product Name</label>
-                <input type="text" id="service-3-name" name="service_3_name" required>
+                <input type="text" id="service-3-name" name="service_3_name" required aria-required="true">
               </div>
               <div class="form-group">
                 <label for="service-3-desc">Short Description</label>
-                <textarea id="service-3-desc" name="service_3_description" placeholder="One or two sentences describing this service or product." required></textarea>
+                <textarea id="service-3-desc" name="service_3_description" placeholder="One or two sentences describing this service or product." required aria-required="true"></textarea>
               </div>
             </div>
 
@@ -625,46 +627,46 @@
           <div class="hours-grid">
 
             <span class="day-label">Monday</span>
-            <input type="time" name="hours_monday_open" value="09:00">
+            <input type="time" name="hours_monday_open" aria-label="Monday opening time" value="09:00">
             <span class="hours-divider">to</span>
-            <input type="time" name="hours_monday_close" value="17:00">
-            <label class="closed-toggle"><input type="checkbox" name="hours_monday_closed"> Closed</label>
+            <input type="time" name="hours_monday_close" aria-label="Monday closing time" value="17:00">
+            <label class="closed-toggle" for="hours_monday_closed"><input type="checkbox" id="hours_monday_closed" name="hours_monday_closed"> Closed</label>
 
             <span class="day-label">Tuesday</span>
-            <input type="time" name="hours_tuesday_open" value="09:00">
+            <input type="time" name="hours_tuesday_open" aria-label="Tuesday opening time" value="09:00">
             <span class="hours-divider">to</span>
-            <input type="time" name="hours_tuesday_close" value="17:00">
-            <label class="closed-toggle"><input type="checkbox" name="hours_tuesday_closed"> Closed</label>
+            <input type="time" name="hours_tuesday_close" aria-label="Tuesday closing time" value="17:00">
+            <label class="closed-toggle" for="hours_tuesday_closed"><input type="checkbox" id="hours_tuesday_closed" name="hours_tuesday_closed"> Closed</label>
 
             <span class="day-label">Wednesday</span>
-            <input type="time" name="hours_wednesday_open" value="09:00">
+            <input type="time" name="hours_wednesday_open" aria-label="Wednesday opening time" value="09:00">
             <span class="hours-divider">to</span>
-            <input type="time" name="hours_wednesday_close" value="17:00">
-            <label class="closed-toggle"><input type="checkbox" name="hours_wednesday_closed"> Closed</label>
+            <input type="time" name="hours_wednesday_close" aria-label="Wednesday closing time" value="17:00">
+            <label class="closed-toggle" for="hours_wednesday_closed"><input type="checkbox" id="hours_wednesday_closed" name="hours_wednesday_closed"> Closed</label>
 
             <span class="day-label">Thursday</span>
-            <input type="time" name="hours_thursday_open" value="09:00">
+            <input type="time" name="hours_thursday_open" aria-label="Thursday opening time" value="09:00">
             <span class="hours-divider">to</span>
-            <input type="time" name="hours_thursday_close" value="17:00">
-            <label class="closed-toggle"><input type="checkbox" name="hours_thursday_closed"> Closed</label>
+            <input type="time" name="hours_thursday_close" aria-label="Thursday closing time" value="17:00">
+            <label class="closed-toggle" for="hours_thursday_closed"><input type="checkbox" id="hours_thursday_closed" name="hours_thursday_closed"> Closed</label>
 
             <span class="day-label">Friday</span>
-            <input type="time" name="hours_friday_open" value="09:00">
+            <input type="time" name="hours_friday_open" aria-label="Friday opening time" value="09:00">
             <span class="hours-divider">to</span>
-            <input type="time" name="hours_friday_close" value="17:00">
-            <label class="closed-toggle"><input type="checkbox" name="hours_friday_closed"> Closed</label>
+            <input type="time" name="hours_friday_close" aria-label="Friday closing time" value="17:00">
+            <label class="closed-toggle" for="hours_friday_closed"><input type="checkbox" id="hours_friday_closed" name="hours_friday_closed"> Closed</label>
 
             <span class="day-label">Saturday</span>
-            <input type="time" name="hours_saturday_open" value="10:00">
+            <input type="time" name="hours_saturday_open" aria-label="Saturday opening time" value="10:00">
             <span class="hours-divider">to</span>
-            <input type="time" name="hours_saturday_close" value="16:00">
-            <label class="closed-toggle"><input type="checkbox" name="hours_saturday_closed"> Closed</label>
+            <input type="time" name="hours_saturday_close" aria-label="Saturday closing time" value="16:00">
+            <label class="closed-toggle" for="hours_saturday_closed"><input type="checkbox" id="hours_saturday_closed" name="hours_saturday_closed"> Closed</label>
 
             <span class="day-label">Sunday</span>
-            <input type="time" name="hours_sunday_open" value="10:00" disabled>
+            <input type="time" name="hours_sunday_open" aria-label="Sunday opening time" value="10:00" disabled>
             <span class="hours-divider">to</span>
-            <input type="time" name="hours_sunday_close" value="16:00" disabled>
-            <label class="closed-toggle"><input type="checkbox" name="hours_sunday_closed" checked> Closed</label>
+            <input type="time" name="hours_sunday_close" aria-label="Sunday closing time" value="16:00" disabled>
+            <label class="closed-toggle" for="hours_sunday_closed"><input type="checkbox" id="hours_sunday_closed" name="hours_sunday_closed" checked> Closed</label>
 
           </div>
         </div>
@@ -676,13 +678,13 @@
 
           <div class="form-group">
             <label for="street-address">Street Address</label>
-            <textarea id="street-address" name="address_street" placeholder="Street number and name, any second line" required></textarea>
+            <textarea id="street-address" name="address_street" placeholder="Street number and name, any second line" required aria-required="true"></textarea>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="address-town">Town / Village</label>
-              <input type="text" id="address-town" name="address_town" required>
+              <input type="text" id="address-town" name="address_town" required aria-required="true">
             </div>
             <div class="form-group">
               <label for="eircode">Eircode <span class="optional">optional</span></label>
@@ -692,7 +694,8 @@
 
           <div class="form-group">
             <label for="domain">Preferred domain name <span class="optional">optional</span></label>
-            <input type="text" id="domain" name="preferred_domain" placeholder="e.g. harbourbakery.ie or westportcafe.com — leave blank if you're not sure">
+            <input type="text" id="domain" name="preferred_domain" placeholder="e.g. harbourbakery.ie or westportcafe.com" aria-describedby="domain-hint">
+            <p id="domain-hint" class="field-hint">Leave blank if you're not sure — we can discuss this.</p>
           </div>
 
           <div class="form-group">
@@ -724,8 +727,8 @@
           <p class="form-section-desc">One last thing before you submit.</p>
 
           <div class="consent-block">
-            <label class="consent-label">
-              <input type="checkbox" name="consent" required>
+            <label class="consent-label" for="consent">
+              <input type="checkbox" id="consent" name="consent" required aria-required="true">
               <span class="consent-text">
                 I agree to the information I've provided being used by The Web Is Yours to build a free website for my business. I understand this information will not be shared with third parties or used for any other purpose. I have read the <a href="/privacy">Privacy Statement</a> and <a href="/terms">Terms and Conditions</a>.
               </span>

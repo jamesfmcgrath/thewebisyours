@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Web Is Yours</title>
+  <title>The Web Is Yours — Free websites for small businesses</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -11,12 +11,17 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <header>
     <a class="logo" href="/">The Web Is <span>Yours</span></a>
-    <span class="coming-soon">Launching Summer 2026</span>
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="/blog">Blog</a>
+      <a href="/#contact" class="nav-cta">Get in Touch</a>
+    </nav>
   </header>
 
-  <main>
+  <main id="main-content">
   <section class="hero" aria-label="Campaign introduction">
     <span class="eyebrow">A grassroots web campaign</span>
     <h1>Every business deserves a home on the web <em>they own.</em></h1>
@@ -70,16 +75,17 @@
       <h3>Let's talk.</h3>
       <p class="contact-sub">Whether you know a business that needs a website, you own one, or you're a developer who wants to help — we'd love to hear from you.</p>
 
-      <div class="role-selector">
-        <button class="role-btn" id="btn-nominator" onclick="setRole('nominator')">
+      <div class="role-selector" role="group" aria-labelledby="role-selector-label">
+        <p id="role-selector-label" class="sr-only">I am:</p>
+        <button class="role-btn" id="btn-nominator" role="radio" aria-checked="false" onclick="setRole('nominator')">
           <span class="role-icon">🏪</span>
           <span class="role-label">I know a business</span>
         </button>
-        <button class="role-btn" id="btn-owner" onclick="setRole('owner')">
+        <button class="role-btn" id="btn-owner" role="radio" aria-checked="false" onclick="setRole('owner')">
           <span class="role-icon">🌱</span>
           <span class="role-label">I own a business</span>
         </button>
-        <button class="role-btn" id="btn-developer" onclick="setRole('developer')">
+        <button class="role-btn" id="btn-developer" role="radio" aria-checked="false" onclick="setRole('developer')">
           <span class="role-icon">💻</span>
           <span class="role-label">I'm a developer</span>
         </button>
@@ -94,17 +100,17 @@
         <div class="form-row">
           <div class="form-group">
             <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Jane Murphy" required>
+            <input type="text" id="name" name="name" placeholder="Jane Murphy" required aria-required="true">
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required aria-required="true">
           </div>
         </div>
 
         <div class="form-group">
           <label for="message">Your Message</label>
-          <textarea id="message" name="message" placeholder="Tell us a bit about the business, or about yourself if you're a developer…" required></textarea>
+          <textarea id="message" name="message" placeholder="Tell us a bit about the business, or about yourself if you're a developer…" required aria-required="true"></textarea>
         </div>
 
         <button type="submit" class="submit-btn" id="submit-btn">

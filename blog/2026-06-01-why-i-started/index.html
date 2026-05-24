@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why I Started This | The Web Is Yours</title>
+  <meta name="description" content="I got tired of searching for a local business and finding only a Facebook page from 2019. So I did something about it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .post {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem 6rem;
+    }
+
+    .post-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--mid);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--terracotta); }
+
+    .post-meta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .post-meta time {
+      font-size: 0.78rem;
+      color: var(--light);
+    }
+
+    .post-meta .read-time {
+      font-size: 0.75rem;
+      color: var(--light);
+      font-weight: 300;
+    }
+
+    .post-meta .read-time::before {
+      content: '·';
+      margin-right: 1rem;
+    }
+
+    .post-header h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .post-description {
+      font-size: 1.1rem;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+      font-family: 'Lora', serif;
+    }
+
+    .post-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .post-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      background: var(--terracotta-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+    }
+
+    .post-body {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--mid);
+      font-weight: 300;
+    }
+
+    .post-body h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .post-body h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-body p {
+      margin-bottom: 1.5rem;
+    }
+
+    .post-body strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .post-body em {
+      font-style: italic;
+    }
+
+    .post-body a {
+      color: var(--terracotta);
+      text-decoration: none;
+      border-bottom: 1px solid var(--terracotta-light);
+      transition: border-color 0.2s;
+    }
+
+    .post-body a:hover {
+      border-color: var(--terracotta);
+    }
+
+    .post-body ul,
+    .post-body ol {
+      margin: 0 0 1.5rem 1.5rem;
+    }
+
+    .post-body li {
+      margin-bottom: 0.5rem;
+      line-height: 1.75;
+    }
+
+    .post-body blockquote {
+      border-left: 3px solid var(--terracotta);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    .post-body code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.88rem;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      color: var(--ink);
+    }
+
+    .post-body pre {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-body pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 0.85rem;
+      line-height: 1.65;
+    }
+
+    .post-body hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    .post-body img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+    }
+
+    .post-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .post-footer p {
+      font-size: 0.88rem;
+      color: var(--light);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .post-footer a {
+      color: var(--terracotta);
+      text-decoration: none;
+    }
+
+    .post-footer p a {
+      border-bottom: 1px solid var(--terracotta-light);
+      transition: border-color 0.2s;
+    }
+
+    .post-footer p a:hover {
+      border-color: var(--terracotta);
+    }
+
+    @media (max-width: 600px) {
+      .post { padding: 2rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <a class="logo" href="/">The Web Is <span>Yours</span></a>
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/blog">Blog</a>
+      <a href="/#contact" class="nav-cta">Get in Touch</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+  <article class="post">
+
+    <div class="post-header">
+      <a class="back-link" href="/blog">&#x2190; All posts</a>
+      <div class="post-meta">
+        <time datetime="2026-06-01">1 June 2026</time>
+        <span class="read-time">2 min read</span>
+      </div>
+      <h1>Why I Started This</h1>
+      <p class="post-description">I got tired of searching for a local business and finding only a Facebook page from 2019. So I did something about it.</p>
+      <div class="post-tags"><span class="post-tag">campaign</span><span class="post-tag">origin</span></div>
+    </div>
+
+    <div class="post-body">
+      <p>I&#39;ve lost count of the number of times I&#39;ve searched for a local business — a café, a plumber, a music teacher — and found nothing but a Facebook page last updated two years ago.</p>
+<p>No opening hours. No address. No way to know if they&#39;re still trading. Just a post from 2022 and a phone number buried in the About section.</p>
+<p>It&#39;s a small frustration but it&#39;s a persistent one. And after the tenth or eleventh time it happened I decided to do something about it.</p>
+<h2>What The Web Is Yours Is</h2>
+<p>Simple offer. We build a free one-page website for small businesses that only exist on social media. We buy the domain. We host it free for the first year. After that it costs about €15 a year to keep the domain.</p>
+<p>One page. Their name. What they do. Where they are. How to contact them. Done.</p>
+<h2>Why One Page</h2>
+<p>Because one page is enough. Most small local businesses don&#39;t need a blog, an online shop, or a booking system. They need people to be able to find them, know they&#39;re open, and know how to get in touch.</p>
+<p>One page does that. And one page is something a volunteer web developer can build in an afternoon and hand over with a clear conscience.</p>
+<h2>Why Free</h2>
+<p>Because the barrier to having a website shouldn&#39;t be money. It should be — do you want one? That&#39;s the only question.</p>
+<p>The domain costs about €15. We cover that. Hosting on Cloudflare Pages is genuinely free. So the whole thing costs us about €15 per business and a few hours of time.</p>
+<p>That felt like a reasonable thing to give.</p>
+<h2>Starting Small</h2>
+<p>We&#39;re starting with one business a month. In the west of Ireland, where I live. One business, one page, one month of someone&#39;s time.</p>
+<p>If other web developers want to join us and do the same in their area — brilliant. If not, we&#39;ll keep going anyway.</p>
+<p>Still finding our way. You can too.</p>
+
+    </div>
+
+    <div class="post-footer">
+      <p>Part of <a href="/">The Web Is Yours</a> &#x2014; a grassroots campaign giving small businesses a home on the web they actually own.</p>
+      <a class="back-link" href="/blog">&#x2190; Back to all posts</a>
+    </div>
+
+  </article>
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      <span class="footer-logo">The Web Is <span>Yours</span></span>
+      <p>A grassroots campaign by web people who give a damn &nbsp;&#xB7;&nbsp; Westport, Ireland &nbsp;&#xB7;&nbsp; 2026</p>
+    </div>
+    <a href="mailto:hello@thewebisyours.org">hello@thewebisyours.org</a>
+    <nav class="footer-legal">
+      <a href="/privacy/">Privacy Statement</a>
+      <span>&#xB7;</span>
+      <a href="/terms/">Terms and Conditions</a>
+    </nav>
+  </footer>
+
+</body>
+</html>

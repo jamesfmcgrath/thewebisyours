@@ -5,6 +5,9 @@
 .env*
 !.env.example
 
+# Node
+node_modules/
+
 # Local dev
 .DS_Store
 .ddev/

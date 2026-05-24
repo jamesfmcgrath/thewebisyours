@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building a Campaign in a Day | The Web Is Yours</title>
+  <meta name="description" content="How the whole thing came together in one session — domain, hosting, email, template, legal docs, and a plan. An honest account of how AI tools fit into the process.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .post {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem 6rem;
+    }
+
+    .post-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--mid);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--terracotta); }
+
+    .post-meta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .post-meta time {
+      font-size: 0.78rem;
+      color: var(--light);
+    }
+
+    .post-meta .read-time {
+      font-size: 0.75rem;
+      color: var(--light);
+      font-weight: 300;
+    }
+
+    .post-meta .read-time::before {
+      content: '·';
+      margin-right: 1rem;
+    }
+
+    .post-header h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .post-description {
+      font-size: 1.1rem;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+      font-family: 'Lora', serif;
+    }
+
+    .post-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .post-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      background: var(--terracotta-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+    }
+
+    .post-body {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--mid);
+      font-weight: 300;
+    }
+
+    .post-body h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .post-body h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-body p {
+      margin-bottom: 1.5rem;
+    }
+
+    .post-body strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .post-body em {
+      font-style: italic;
+    }
+
+    .post-body a {
+      color: var(--terracotta);
+      text-decoration: none;
+      border-bottom: 1px solid var(--terracotta-light);
+      transition: border-color 0.2s;
+    }
+
+    .post-body a:hover {
+      border-color: var(--terracotta);
+    }
+
+    .post-body ul,
+    .post-body ol {
+      margin: 0 0 1.5rem 1.5rem;
+    }
+
+    .post-body li {
+      margin-bottom: 0.5rem;
+      line-height: 1.75;
+    }
+
+    .post-body blockquote {
+      border-left: 3px solid var(--terracotta);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    .post-body code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.88rem;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      color: var(--ink);
+    }
+
+    .post-body pre {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-body pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 0.85rem;
+      line-height: 1.65;
+    }
+
+    .post-body hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    .post-body img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+    }
+
+    .post-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .post-footer p {
+      font-size: 0.88rem;
+      color: var(--light);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .post-footer a {
+      color: var(--terracotta);
+      text-decoration: none;
+    }
+
+    .post-footer p a {
+      border-bottom: 1px solid var(--terracotta-light);
+      transition: border-color 0.2s;
+    }
+
+    .post-footer p a:hover {
+      border-color: var(--terracotta);
+    }
+
+    @media (max-width: 600px) {
+      .post { padding: 2rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <a class="logo" href="/">The Web Is <span>Yours</span></a>
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/blog">Blog</a>
+      <a href="/#contact" class="nav-cta">Get in Touch</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+  <article class="post">
+
+    <div class="post-header">
+      <a class="back-link" href="/blog">&#x2190; All posts</a>
+      <div class="post-meta">
+        <time datetime="2026-06-02">2 June 2026</time>
+        <span class="read-time">3 min read</span>
+      </div>
+      <h1>Building a Campaign in a Day</h1>
+      <p class="post-description">How the whole thing came together in one session — domain, hosting, email, template, legal docs, and a plan. An honest account of how AI tools fit into the process.</p>
+      <div class="post-tags"><span class="post-tag">process</span><span class="post-tag">tools</span><span class="post-tag">build</span></div>
+    </div>
+
+    <div class="post-body">
+      <p>The honest version of how The Web Is Yours came together is that most of the infrastructure was built in a single long session with Claude.</p>
+<p>Not the idea — the idea had been sitting in the back of my head for a while. But the domain, the hosting setup, the contact form, the one-page business template, the legal documents, the contributing guide, the project brief — most of that happened in one day.</p>
+<p>I want to write about that honestly because I think there&#39;s something useful in it.</p>
+<h2>What Actually Happened</h2>
+<p>It started as a conversation. I had an idea, I wanted to think it through, and I started talking it through with Claude. The name went through a few iterations — <em>One Page at a Time</em> conflicted with a book, <em>This Page Is Yours</em> was good but not quite right — before landing on <em>The Web Is Yours</em>.</p>
+<p>From there it moved fast. Domain registered on Cloudflare. Email routing set up through Cloudflare to Proton Mail. A placeholder site built and deployed to Cloudflare Pages. A contact form integrated with Web3Forms. A one-page business template with a CSS variable system. A README. A CONTRIBUTING guide. A CLAUDE.md. A .cursorrules file. Privacy statement. Terms and conditions.</p>
+<p>All in one session.</p>
+<h2>What AI Is Good At Here</h2>
+<p>The repetitive structural work. The things that need to be right but don&#39;t require creative judgment — form handling, CSS architecture decisions, legal document structure, README formatting.</p>
+<p>It&#39;s also good as a thinking partner for the early fuzzy stage — testing the name, pressure-testing the concept, identifying the risks before you&#39;re committed.</p>
+<h2>What It Isn&#39;t</h2>
+<p>It isn&#39;t a replacement for judgment. Every decision in that session was mine. The AI surfaced options, I chose. It drafted documents, I read and approved them. It suggested approaches, I accepted or pushed back.</p>
+<p>The legal documents in particular — I read every line. They&#39;re plain English and proportionate for a sole trader running a free community campaign, but I read them.</p>
+<h2>The Template</h2>
+<p>The business template is the part I&#39;m most pleased with. Single HTML file. CSS variables for colours — swap four values at the top and the whole site recolours. No framework, no build tool, no dependencies beyond Google Fonts. Any developer at any skill level can open it, edit it, and deploy it.</p>
+<p>That simplicity was a deliberate decision and it took some back-and-forth to get right. The temptation with these things is always to add more. We didn&#39;t.</p>
+<h2>What&#39;s Next</h2>
+<p>The placeholder site is live. The template is in the repo. The legal pages need building. The onboarding form needs building. The blog — well, you&#39;re reading it.</p>
+<p>One business to find. One site to build. One month to do it in.</p>
+<p>Still finding our way.</p>
+
+    </div>
+
+    <div class="post-footer">
+      <p>Part of <a href="/">The Web Is Yours</a> &#x2014; a grassroots campaign giving small businesses a home on the web they actually own.</p>
+      <a class="back-link" href="/blog">&#x2190; Back to all posts</a>
+    </div>
+
+  </article>
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      <span class="footer-logo">The Web Is <span>Yours</span></span>
+      <p>A grassroots campaign by web people who give a damn &nbsp;&#xB7;&nbsp; Westport, Ireland &nbsp;&#xB7;&nbsp; 2026</p>
+    </div>
+    <a href="mailto:hello@thewebisyours.org">hello@thewebisyours.org</a>
+    <nav class="footer-legal">
+      <a href="/privacy/">Privacy Statement</a>
+      <span>&#xB7;</span>
+      <a href="/terms/">Terms and Conditions</a>
+    </nav>
+  </footer>
+
+</body>
+</html>

@@ -10,8 +10,13 @@
 })();
 
 function setRole(role) {
-  document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('btn-' + role).classList.add('active');
+  document.querySelectorAll('.role-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-checked', 'false');
+  });
+  const btn = document.getElementById('btn-' + role);
+  btn.classList.add('active');
+  btn.setAttribute('aria-checked', 'true');
   document.querySelector('input[name="role"]').value = role;
 
   const subjects = {

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}} | The Web Is Yours</title>
+  <meta name="description" content="{{description}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .post {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem 6rem;
+    }
+
+    .post-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--mid);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--terracotta); }
+
+    .post-meta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .post-meta time {
+      font-size: 0.78rem;
+      color: var(--light);
+    }
+
+    .post-meta .read-time {
+      font-size: 0.75rem;
+      color: var(--light);
+      font-weight: 300;
+    }
+
+    .post-meta .read-time::before {
+      content: '·';
+      margin-right: 1rem;
+    }
+
+    .post-header h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .post-description {
+      font-size: 1.1rem;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+      font-family: 'Lora', serif;
+    }
+
+    .post-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .post-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      background: var(--terracotta-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+    }
+
+    .post-body {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--mid);
+      font-weight: 300;
+    }
+
+    .post-body h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .post-body h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-body p {
+      margin-bottom: 1.5rem;
+    }
+
+    .post-body strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .post-body em {
+      font-style: italic;
+    }
+
+    .post-body a {
+      color: var(--terracotta);
+      text-decoration: none;
+      border-bottom: 1px solid var(--terracotta-light);
+      transition: border-color 0.2s;
+    }
+
+    .post-body a:hover {
+      border-color: var(--terracotta);
+    }
+
+    .post-body ul,
+    .post-body ol {
+      margin: 0 0 1.5rem 1.5rem;
+    }
+
+    .post-body li {
+      margin-bottom: 0.5rem;
+      line-height: 1.75;
+    }
+
+    .post-body blockquote {
+      border-left: 3px solid var(--terracotta);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    .post-body code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.88rem;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      color: var(--ink);
+    }
+
+    .post-body pre {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-body pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 0.85rem;
+      line-height: 1.65;
+    }
+
+    .post-body hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    .post-body img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+    }
+
+    .post-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .post-footer p {
+      font-size: 0.88rem;
+      color: var(--light);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .post-footer a {
+      color: var(--terracotta);
+      text-decoration: none;
+    }
+
+    .post-footer p a {
+      border-bottom: 1px solid var(--terracotta-light);
+      transition: border-color 0.2s;
+    }
+
+    .post-footer p a:hover {
+      border-color: var(--terracotta);
+    }
+
+    @media (max-width: 600px) {
+      .post { padding: 2rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header>
+    <a class="logo" href="/">The Web Is <span>Yours</span></a>
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/blog">Blog</a>
+      <a href="/#contact" class="nav-cta">Get in Touch</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+  <article class="post">
+
+    <div class="post-header">
+      <a class="back-link" href="/blog">&#x2190; All posts</a>
+      <div class="post-meta">
+        <time datetime="{{isoDate}}">{{date}}</time>
+        <span class="read-time">{{readTime}} min read</span>
+      </div>
+      <h1>{{title}}</h1>
+      <p class="post-description">{{description}}</p>
+      <div class="post-tags">{{tags}}</div>
+    </div>
+
+    <div class="post-body">
+      {{content}}
+    </div>
+
+    <div class="post-footer">
+      <p>Part of <a href="/">The Web Is Yours</a> &#x2014; a grassroots campaign giving small businesses a home on the web they actually own.</p>
+      <a class="back-link" href="/blog">&#x2190; Back to all posts</a>
+    </div>
+
+  </article>
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      <span class="footer-logo">The Web Is <span>Yours</span></span>
+      <p>A grassroots campaign by web people who give a damn &nbsp;&#xB7;&nbsp; Westport, Ireland &nbsp;&#xB7;&nbsp; 2026</p>
+    </div>
+    <a href="mailto:hello@thewebisyours.org">hello@thewebisyours.org</a>
+    <nav class="footer-legal">
+      <a href="/privacy/">Privacy Statement</a>
+      <span>&#xB7;</span>
+      <a href="/terms/">Terms and Conditions</a>
+    </nav>
+  </footer>
+
+</body>
+</html>
