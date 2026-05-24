@@ -159,6 +159,7 @@
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
 
     .card::before {
@@ -221,6 +222,11 @@
       color: var(--terracotta);
       text-decoration: none;
       transition: gap 0.2s ease;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 0;
     }
 
     .card-link:hover { gap: 0.7rem; }
@@ -245,6 +251,183 @@
     }
 
     .manifesto blockquote span { color: var(--light); }
+
+    /* CONTACT FORM SECTION */
+    .contact-section {
+      background: var(--warm-white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 2.5rem;
+      animation: fadeUp 0.8s 0.5s ease both;
+    }
+
+    .contact-inner {
+      max-width: 640px;
+    }
+
+    .contact-section .section-label {
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-section h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+    }
+
+    .contact-section .contact-sub {
+      font-size: 0.95rem;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ROLE SELECTOR */
+    .role-selector {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .role-btn {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 0.5rem;
+      background: var(--cream);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .role-btn .role-icon { font-size: 1.3rem; display: block; margin-bottom: 0.35rem; }
+
+    .role-btn .role-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--mid);
+      display: block;
+      line-height: 1.3;
+    }
+
+    .role-btn:hover {
+      border-color: var(--terracotta);
+      background: var(--terracotta-light);
+    }
+
+    .role-btn.active {
+      border-color: var(--terracotta);
+      background: var(--terracotta-light);
+    }
+
+    .role-btn.active .role-label { color: var(--terracotta); }
+
+    /* FORM FIELDS */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--cream);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--terracotta);
+      box-shadow: 0 0 0 3px rgba(196,98,45,0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.6;
+    }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--terracotta);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 0.9rem 2rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .submit-btn:hover {
+      background: #b05525;
+      transform: translateY(-1px);
+    }
+
+    .submit-btn:disabled {
+      background: var(--light);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .submit-btn .btn-arrow { transition: transform 0.2s ease; }
+    .submit-btn:hover .btn-arrow { transform: translateX(3px); }
+
+    /* SUCCESS STATE */
+    .success-msg {
+      display: none;
+      background: var(--sage-light);
+      border: 1px solid var(--sage);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .success-msg.visible { display: block; }
+
+    .success-msg p {
+      font-size: 0.95rem;
+      color: var(--sage);
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .success-msg strong { font-weight: 600; }
 
     /* FOOTER */
     footer {
@@ -310,7 +493,10 @@
       .hero { padding: 3rem 1.5rem 2rem; }
       .cards-section { padding: 3rem 1.5rem; }
       .manifesto { padding: 3rem 1.5rem; }
+      .contact-section { padding: 3rem 1.5rem; }
       footer { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
+      .form-row { grid-template-columns: 1fr; }
+      .role-selector { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -327,7 +513,8 @@
     <p class="hero-text">
       We're tired of searching for a local business and finding only a Facebook page last updated in 2022.
       <strong>So we're doing something about it.</strong> Free one-page websites for small businesses
-      that only exist on social media. Starting in the west of Ireland. One business at a time.
+      that only exist on social media. Starting in the west of Ireland, with a simple goal —
+      <strong>one site a month.</strong> One business at a time.
     </p>
   </section>
 
@@ -335,25 +522,25 @@
     <p class="section-label">How can we help?</p>
     <div class="cards">
 
-      <div class="card">
+      <div class="card" onclick="scrollToForm('nominator')">
         <div class="card-icon terracotta">🏪</div>
         <h2>Know a Business?</h2>
         <p>A café, a trades person, a music teacher, a shop. If you know a local business whose only web presence is a Facebook page, tell us. We want to help them.</p>
-        <a class="card-link" href="mailto:hello@thewebisyours.org?subject=I know a business that needs a website">Nominate a business</a>
+        <button class="card-link">Nominate a business</button>
       </div>
 
-      <div class="card">
+      <div class="card" onclick="scrollToForm('owner')">
         <div class="card-icon warm">🌱</div>
         <h2>Own a Business?</h2>
         <p>We build you a free one-page website. We buy your domain. We host it free for the first year. After that it's yours to keep for the price of a few coffees a year.</p>
-        <a class="card-link" href="mailto:hello@thewebisyours.org?subject=I want a website for my business">Get in touch</a>
+        <button class="card-link">Get in touch</button>
       </div>
 
-      <div class="card">
+      <div class="card" onclick="scrollToForm('developer')">
         <div class="card-icon sage">💻</div>
         <h2>Are You a Developer?</h2>
         <p>One business. One page. One month of your time. We have a template, a process, and a community forming. Come build something that matters.</p>
-        <a class="card-link" href="mailto:hello@thewebisyours.org?subject=I want to volunteer as a developer">Join the campaign</a>
+        <button class="card-link">Join the campaign</button>
       </div>
 
     </div>
@@ -367,6 +554,63 @@
     </blockquote>
   </section>
 
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <p class="section-label">Get involved</p>
+      <h2>Let's talk.</h2>
+      <p class="contact-sub">Whether you know a business that needs a website, you own one, or you're a developer who wants to help — we'd love to hear from you.</p>
+
+      <div class="role-selector">
+        <button class="role-btn" id="btn-nominator" onclick="setRole('nominator')">
+          <span class="role-icon">🏪</span>
+          <span class="role-label">I know a business</span>
+        </button>
+        <button class="role-btn" id="btn-owner" onclick="setRole('owner')">
+          <span class="role-icon">🌱</span>
+          <span class="role-label">I own a business</span>
+        </button>
+        <button class="role-btn" id="btn-developer" onclick="setRole('developer')">
+          <span class="role-icon">💻</span>
+          <span class="role-label">I'm a developer</span>
+        </button>
+      </div>
+
+      <form id="contact-form">
+        <input type="hidden" name="access_key" value="b02650c2-6657-4c17-8091-e0af722c5a44">
+        <input type="hidden" name="subject" id="form-subject" value="New message from The Web Is Yours">
+        <input type="hidden" name="from_name" value="The Web Is Yours">
+        <input type="hidden" name="role" id="form-role" value="Not specified">
+        <!-- Honeypot -->
+        <input type="checkbox" name="botcheck" style="display:none;">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Murphy" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Tell us a bit about the business, or about yourself if you're a developer…" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+          Send Message <span class="btn-arrow">→</span>
+        </button>
+      </form>
+
+      <div class="success-msg" id="success-msg">
+        <p><strong>Message received — thank you.</strong> We'll be in touch soon. In the meantime, feel free to share the campaign with anyone you think might benefit.</p>
+      </div>
+
+    </div>
+  </section>
+
   <footer>
     <div class="footer-left">
       <span class="footer-logo">The Web Is <span>Yours</span></span>
@@ -374,6 +618,70 @@
     </div>
     <a href="mailto:hello@thewebisyours.org">hello@thewebisyours.org</a>
   </footer>
+
+  <script>
+    // Role selector
+    function setRole(role) {
+      document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('btn-' + role).classList.add('active');
+      document.getElementById('form-role').value = role;
+
+      const subjects = {
+        nominator: 'Business nomination — The Web Is Yours',
+        owner: 'Business owner enquiry — The Web Is Yours',
+        developer: 'Developer volunteer — The Web Is Yours'
+      };
+      document.getElementById('form-subject').value = subjects[role];
+
+      const placeholders = {
+        nominator: 'Tell us about the business you\'re nominating — where are they, what do they do?',
+        owner: 'Tell us about your business — what you do, where you\'re based, and what you\'d like on your website.',
+        developer: 'Tell us a bit about yourself — your experience, where you\'re based, and when you\'d like to get involved.'
+      };
+      document.getElementById('message').placeholder = placeholders[role];
+    }
+
+    // Scroll to form and set role from card click
+    function scrollToForm(role) {
+      setRole(role);
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Form submission
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      const formData = new FormData(this);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: json
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          document.getElementById('contact-form').style.display = 'none';
+          document.getElementById('success-msg').classList.add('visible');
+        } else {
+          btn.disabled = false;
+          btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+          alert('Something went wrong. Please try emailing hello@thewebisyours.org directly.');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+        alert('Something went wrong. Please try emailing hello@thewebisyours.org directly.');
+      }
+    });
+  </script>
 
 </body>
 </html>
