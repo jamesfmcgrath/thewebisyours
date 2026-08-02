@@ -28,7 +28,7 @@
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--sage);
+      color: var(--ink);
       background: var(--sage-light);
       padding: 0.3rem 0.8rem;
       border-radius: 100px;
@@ -255,7 +255,7 @@
       border-radius: 12px;
       padding: 1.25rem 1.5rem;
       font-size: 0.88rem;
-      color: var(--sage);
+      color: var(--ink);
       line-height: 1.7;
     }
 
@@ -263,7 +263,7 @@
       display: block;
       font-weight: 500;
       margin-bottom: 0.25rem;
-      color: var(--sage);
+      color: var(--ink);
     }
 
     /* CONSENT */
@@ -368,13 +368,13 @@
       font-family: 'Lora', serif;
       font-size: 1.4rem;
       font-weight: 600;
-      color: var(--sage);
+      color: var(--ink);
       margin-bottom: 0.75rem;
     }
 
     .success-msg p {
       font-size: 0.9rem;
-      color: var(--sage);
+      color: var(--ink);
       line-height: 1.75;
       font-weight: 300;
     }
@@ -624,46 +624,46 @@
 
           <div class="hours-grid">
 
-            <span class="day-label">Monday</span>
-            <input type="time" name="hours_monday_open" value="09:00">
-            <span class="hours-divider">to</span>
-            <input type="time" name="hours_monday_close" value="17:00">
+            <span class="day-label" id="label-monday">Monday</span>
+            <input type="time" id="hours-monday-open" name="hours_monday_open" value="09:00" aria-label="Monday opening time">
+            <span class="hours-divider" aria-hidden="true">to</span>
+            <input type="time" id="hours-monday-close" name="hours_monday_close" value="17:00" aria-label="Monday closing time">
             <label class="closed-toggle"><input type="checkbox" name="hours_monday_closed"> Closed</label>
 
-            <span class="day-label">Tuesday</span>
-            <input type="time" name="hours_tuesday_open" value="09:00">
-            <span class="hours-divider">to</span>
-            <input type="time" name="hours_tuesday_close" value="17:00">
+            <span class="day-label" id="label-tuesday">Tuesday</span>
+            <input type="time" id="hours-tuesday-open" name="hours_tuesday_open" value="09:00" aria-label="Tuesday opening time">
+            <span class="hours-divider" aria-hidden="true">to</span>
+            <input type="time" id="hours-tuesday-close" name="hours_tuesday_close" value="17:00" aria-label="Tuesday closing time">
             <label class="closed-toggle"><input type="checkbox" name="hours_tuesday_closed"> Closed</label>
 
-            <span class="day-label">Wednesday</span>
-            <input type="time" name="hours_wednesday_open" value="09:00">
-            <span class="hours-divider">to</span>
-            <input type="time" name="hours_wednesday_close" value="17:00">
+            <span class="day-label" id="label-wednesday">Wednesday</span>
+            <input type="time" id="hours-wednesday-open" name="hours_wednesday_open" value="09:00" aria-label="Wednesday opening time">
+            <span class="hours-divider" aria-hidden="true">to</span>
+            <input type="time" id="hours-wednesday-close" name="hours_wednesday_close" value="17:00" aria-label="Wednesday closing time">
             <label class="closed-toggle"><input type="checkbox" name="hours_wednesday_closed"> Closed</label>
 
-            <span class="day-label">Thursday</span>
-            <input type="time" name="hours_thursday_open" value="09:00">
-            <span class="hours-divider">to</span>
-            <input type="time" name="hours_thursday_close" value="17:00">
+            <span class="day-label" id="label-thursday">Thursday</span>
+            <input type="time" id="hours-thursday-open" name="hours_thursday_open" value="09:00" aria-label="Thursday opening time">
+            <span class="hours-divider" aria-hidden="true">to</span>
+            <input type="time" id="hours-thursday-close" name="hours_thursday_close" value="17:00" aria-label="Thursday closing time">
             <label class="closed-toggle"><input type="checkbox" name="hours_thursday_closed"> Closed</label>
 
-            <span class="day-label">Friday</span>
-            <input type="time" name="hours_friday_open" value="09:00">
-            <span class="hours-divider">to</span>
-            <input type="time" name="hours_friday_close" value="17:00">
+            <span class="day-label" id="label-friday">Friday</span>
+            <input type="time" id="hours-friday-open" name="hours_friday_open" value="09:00" aria-label="Friday opening time">
+            <span class="hours-divider" aria-hidden="true">to</span>
+            <input type="time" id="hours-friday-close" name="hours_friday_close" value="17:00" aria-label="Friday closing time">
             <label class="closed-toggle"><input type="checkbox" name="hours_friday_closed"> Closed</label>
 
-            <span class="day-label">Saturday</span>
-            <input type="time" name="hours_saturday_open" value="10:00">
-            <span class="hours-divider">to</span>
-            <input type="time" name="hours_saturday_close" value="16:00">
+            <span class="day-label" id="label-saturday">Saturday</span>
+            <input type="time" id="hours-saturday-open" name="hours_saturday_open" value="10:00" aria-label="Saturday opening time">
+            <span class="hours-divider" aria-hidden="true">to</span>
+            <input type="time" id="hours-saturday-close" name="hours_saturday_close" value="16:00" aria-label="Saturday closing time">
             <label class="closed-toggle"><input type="checkbox" name="hours_saturday_closed"> Closed</label>
 
-            <span class="day-label">Sunday</span>
-            <input type="time" name="hours_sunday_open" value="10:00" disabled>
-            <span class="hours-divider">to</span>
-            <input type="time" name="hours_sunday_close" value="16:00" disabled>
+            <span class="day-label" id="label-sunday">Sunday</span>
+            <input type="time" id="hours-sunday-open" name="hours_sunday_open" value="10:00" disabled aria-label="Sunday opening time">
+            <span class="hours-divider" aria-hidden="true">to</span>
+            <input type="time" id="hours-sunday-close" name="hours_sunday_close" value="16:00" disabled aria-label="Sunday closing time">
             <label class="closed-toggle"><input type="checkbox" name="hours_sunday_closed" checked> Closed</label>
 
           </div>

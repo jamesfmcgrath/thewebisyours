@@ -61,11 +61,11 @@ Tokens live in `css/style.css`:
   --cream: #faf6f0;
   --warm-white: #fff9f2;
   --ink: #1c1712;
-  --mid: #5c5248;
-  --light: #7a6d62;
-  --terracotta: #863d17;
+  --mid: #4a433c;
+  --light: #524b43;
+  --terracotta: #7a3714;
   --terracotta-light: #f0e0d6;
-  --sage: #6b7c6e;
+  --sage: #3f4840;
   --sage-light: #e4ece5;
   --border: #e8ddd5;
 }
