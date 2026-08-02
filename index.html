@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Web Is Yours</title>
+  <meta name="description" content="Free one-page websites for small businesses that only exist on social media. A grassroots campaign starting in the west of Ireland — one site a month.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -32,25 +33,25 @@
     <h2 class="section-label">How can we help?</h2>
     <div class="cards">
 
-      <div class="card" onclick="scrollToForm('nominator')">
-        <div class="card-icon terracotta">🏪</div>
+      <div class="card">
+        <div class="card-icon terracotta" aria-hidden="true">🏪</div>
         <h3>Know a Business?</h3>
         <p>A café, a trades person, a music teacher, a shop. If you know a local business whose only web presence is a Facebook page, tell us. We want to help them.</p>
-        <button class="card-link">Nominate a business</button>
+        <button type="button" class="card-link" onclick="scrollToForm('nominator')">Nominate a business</button>
       </div>
 
-      <div class="card" onclick="scrollToForm('owner')">
-        <div class="card-icon warm">🌱</div>
+      <div class="card">
+        <div class="card-icon warm" aria-hidden="true">🌱</div>
         <h3>Own a Business?</h3>
         <p>We build you a free one-page website. We buy your domain. We host it free for the first year. After that it's yours to keep for the price of a few coffees a year.</p>
-        <button class="card-link">Get in touch</button>
+        <a class="card-link" href="/onboard/">Apply for a free site</a>
       </div>
 
-      <div class="card" onclick="scrollToForm('developer')">
-        <div class="card-icon sage">💻</div>
+      <div class="card">
+        <div class="card-icon sage" aria-hidden="true">💻</div>
         <h3>Are You a Developer?</h3>
         <p>One business. One page. One month of your time. We have a template, a process, and a community forming. Come build something that matters.</p>
-        <button class="card-link">Join the campaign</button>
+        <button type="button" class="card-link" onclick="scrollToForm('developer')">Join the campaign</button>
       </div>
 
     </div>
@@ -68,7 +69,7 @@
     <div class="contact-inner">
       <h2 class="section-label">Get involved</h2>
       <h3>Let's talk.</h3>
-      <p class="contact-sub">Whether you know a business that needs a website, you own one, or you're a developer who wants to help — we'd love to hear from you.</p>
+      <p class="contact-sub">Whether you know a business that needs a website, you own one, or you're a developer who wants to help — we'd love to hear from you. Business owners ready to apply can also use the <a href="/onboard/">onboarding form</a>.</p>
 
       <div class="role-selector">
         <button class="role-btn" id="btn-nominator" onclick="setRole('nominator')">
@@ -127,6 +128,8 @@
     </div>
     <a href="mailto:hello@thewebisyours.org">hello@thewebisyours.org</a>
     <nav class="footer-legal">
+      <a href="/onboard/">Onboarding</a>
+      <span>·</span>
       <a href="/privacy/">Privacy Statement</a>
       <span>·</span>
       <a href="/terms/">Terms and Conditions</a>

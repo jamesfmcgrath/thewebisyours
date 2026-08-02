@@ -147,7 +147,17 @@ h1 em {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   position: relative;
   overflow: hidden;
-  cursor: pointer;
+}
+
+.card:has(.card-link:hover),
+.card:has(.card-link:focus-visible) {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(28,23,18,0.08);
+}
+
+.card:has(.card-link:hover)::before,
+.card:has(.card-link:focus-visible)::before {
+  transform: scaleX(1);
 }
 
 .card::before {
@@ -161,13 +171,6 @@ h1 em {
   transform-origin: left;
   transition: transform 0.3s ease;
 }
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(28,23,18,0.08);
-}
-
-.card:hover::before { transform: scaleX(1); }
 
 .card-icon {
   width: 44px;
@@ -215,9 +218,28 @@ h1 em {
   cursor: pointer;
   font-family: inherit;
   padding: 0;
+  position: static;
+}
+
+/* Stretch the control so the whole card is clickable without nesting interactive elements */
+.card-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 16px;
 }
 
 .card-link:hover { gap: 0.7rem; }
+.card-link:focus-visible {
+  outline: none;
+}
+
+.card-link:focus-visible::before {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 2px;
+}
+
 .card-link::after { content: '→'; }
 
 /* MANIFESTO */
@@ -273,6 +295,17 @@ h1 em {
   font-weight: 300;
   line-height: 1.7;
   margin-bottom: 2.5rem;
+}
+
+.contact-section .contact-sub a {
+  color: var(--terracotta);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.contact-section .contact-sub a:hover {
+  color: var(--ink);
 }
 
 /* ROLE SELECTOR */
