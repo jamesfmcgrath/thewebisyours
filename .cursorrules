@@ -1,0 +1,126 @@
+# The Web Is Yours — Campaign Site Rules
+
+## Project Overview
+
+This repo is the **campaign site** for The Web Is Yours — https://thewebisyours.org
+
+It is **not** the volunteer business template. That lives in a separate repo (`thewebisyours-template`). Do not apply single-file template constraints here.
+
+Contact: hello@thewebisyours.org
+
+## What This Site Is
+
+A multi-page static marketing/ops site:
+- Campaign pitch and contact form (home)
+- Business onboarding form (`/onboard/`)
+- Privacy and terms
+
+Business sites built for clients stay one-page, zero-build, and use the template repo. This campaign site may have multiple pages.
+
+## Stack
+
+- Pure HTML/CSS + minimal vanilla JS
+- Shared assets in `css/style.css` and `js/script.js`
+- Forms via Web3Forms
+- Deploy: Cloudflare Workers static assets (`wrangler.jsonc`, `assets.directory: "."`)
+- Local: DDEV (`docroot: "."`) optional
+
+### Never do this (unless explicitly asked)
+- Do not add CSS frameworks (Tailwind, Bootstrap, etc.)
+- Do not add JS frameworks (React, Vue, Alpine, etc.) or jQuery
+- Do not introduce a build tool, Astro, or npm app stack without an explicit request
+- Do not add ecommerce, booking systems, or a CMS
+- Do not invent campaign policy that contradicts Privacy / Terms
+
+### Always do this
+- Keep the site static and deployable as files under the repo root
+- Use CSS custom properties in `:root` for colours — no hardcoded hex outside `:root`
+- Prefer shared `css/style.css` / `js/script.js` over duplicating chrome across pages
+- Write semantic HTML; keep mobile layout working at 375px
+- Preserve trailing-slash URLs consistently (`/privacy/`, `/terms/`, `/onboard/`)
+- Keep JavaScript minimal and scoped to forms / small UI behaviour
+
+## File Structure
+
+```
+index.html           # Campaign homepage
+css/style.css        # Shared styles
+js/script.js         # Home contact form (role selector, Web3Forms)
+onboard/index.html   # Business intake form
+privacy/index.html
+terms/index.html
+favicon.svg
+wrangler.jsonc       # Cloudflare deploy config
+```
+
+## CSS Architecture
+
+Colours via custom properties in `css/style.css`:
+
+```css
+--cream            /* Page background */
+--warm-white       /* Surfaces */
+--ink              /* Main text */
+--mid              /* Secondary text */
+--light            /* Muted text */
+--terracotta       /* Primary accent */
+--terracotta-light /* Accent tint */
+--sage             /* Secondary accent */
+--sage-light       /* Sage tint */
+--border           /* Dividers */
+```
+
+Update `:root` for colour changes — do not scatter new hex values inline.
+
+## Fonts
+
+Google Fonts only:
+- Lora — headings / logo, serif
+- Plus Jakarta Sans — body, sans-serif
+
+Do not add fonts unless asked.
+
+## Pages
+
+1. **Home** (`/`) — header, hero, involvement cards, manifesto, contact form, footer
+2. **Onboard** (`/onboard/`) — business application form
+3. **Privacy** (`/privacy/`)
+4. **Terms** (`/terms/`)
+
+Keep header/footer/nav consistent when editing chrome. Link related flows (e.g. owner path ↔ onboard) when relevant.
+
+## JavaScript
+
+Home (`js/script.js`): honeypot injection, `setRole()`, `scrollToForm()`, Web3Forms submit.
+
+Onboard: page-local script for hours toggles and form submit.
+
+Do not add libraries unless explicitly asked.
+
+## Accessibility
+
+- Interactive elements must be keyboard operable (avoid click-only `div` handlers)
+- Labels for form controls; sufficient colour contrast (WCAG AA)
+- Respect `prefers-reduced-motion` for decorative animation when touching motion CSS
+- Images need descriptive `alt` text
+
+## When Making Edits
+
+- Read the full page/section before editing
+- Do not reformat or minify wholesale
+- Prefer fixing shared CSS/JS once over copy-paste across pages
+- Test mobile after structural changes
+
+## Campaign Values (apply to client business sites)
+
+These constrain what the campaign *offers* businesses — not the shape of this marketing site:
+
+- Domain registered in the business’s name
+- One-page business websites via the volunteer template
+- Footer credit to thewebisyours.org on business sites
+- Hosting on Cloudflare for campaign-built sites
+
+## Related Repo
+
+Volunteer template (zero-build, single `index.html`): `thewebisyours-template`  
+Do not migrate that template to Astro or other frameworks.

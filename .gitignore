@@ -8,6 +8,5 @@
 # Local dev
 .DS_Store
 .ddev/
-CLAUDE.md
-.cursorrules
 .claude/
+node_modules/

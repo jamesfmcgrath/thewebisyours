@@ -1,0 +1,29 @@
+---
+description: Campaign site (thewebisyours.org) — not the volunteer business template
+alwaysApply: true
+---
+
+# Campaign site rules
+
+This repo is **https://thewebisyours.org** (multi-page static campaign site), not `thewebisyours-template`.
+
+## Stack
+- HTML + `css/style.css` + `js/script.js` (+ page-local onboard JS)
+- Web3Forms for forms; Cloudflare via `wrangler.jsonc` static assets
+- No frameworks / no Astro / no npm app stack unless explicitly asked
+
+## Do
+- Colours only via `:root` tokens (`--cream`, `--ink`, `--terracotta`, `--sage`, etc.)
+- Semantic HTML; keyboard-accessible controls; mobile at 375px
+- Consistent trailing-slash URLs (`/privacy/`, `/terms/`, `/onboard/`)
+- Prefer shared CSS/JS over copy-pasted chrome
+
+## Don't
+- Treat this as a single-file bakery template
+- Add Tailwind/Bootstrap/React/Vue/jQuery
+- Add ecommerce, booking, or CMS
+- Change campaign policy in ways that contradict Privacy/Terms
+- Migrate the separate volunteer template to a framework
+
+## Pages
+Home `/`, onboard `/onboard/`, privacy `/privacy/`, terms `/terms/`
