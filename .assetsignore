@@ -1,11 +1,14 @@
-# Keep deploy uploads limited to public site files
 .git
 .ddev
 .DS_Store
 .claude
 .cursor
+.cursorrules
 .wrangler
 node_modules
-**/node_modules
-**/.DS_Store
-**/.git
+CLAUDE.md
+README.md
+.gitignore
+wrangler.jsonc
+package.json
+package-lock.json
