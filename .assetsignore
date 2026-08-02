@@ -1,0 +1,11 @@
+# Keep deploy uploads limited to public site files
+.git
+.ddev
+.DS_Store
+.claude
+.cursor
+.wrangler
+node_modules
+**/node_modules
+**/.DS_Store
+**/.git
